@@ -1,6 +1,7 @@
 package kvnb.hostelservicemanagement;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -195,6 +196,10 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+            final SharedPreferences.Editor editor = pref.edit();
+            editor.clear();
+            editor.commit();
             Intent in =new Intent(this,MainActivity.class);
             startActivity(in);
         } else if (id == R.id.nav_manage) {
